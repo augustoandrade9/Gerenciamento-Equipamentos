@@ -12,5 +12,5 @@ Sistema para gerenciar manutenções de equipamentos em uma empresa
 * Pedro Peter de Barros Falcão	
 * Augusto de Souza Andrade
 
-## Orientadores
+## Orientador
 * Afonso Henrique Correa de Sales
