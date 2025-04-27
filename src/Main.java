@@ -1,21 +1,49 @@
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Scanner;
-
+import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        Funcionario funcionario = new Funcionario(1, "João Silva", "joao.silva@empresa.com");
+        ArrayList<Funcionario> funcionarios = new ArrayList<Funcionario>();
+        funcionarios.add(new Funcionario(1, "João Silva", "joao.silva@empresa.com"));
+        funcionarios.add(new Funcionario(2,"Mariana Souza", "mariana@empresa.com"));
+        funcionarios.add(new Funcionario(3, "Carlos Rosa", "carlos.r@empresa.com"));
+        funcionarios.add(new Funcionario(4, "Marcos Henrique", "m.henrique@empresa.com"));
+        funcionarios.add(new Funcionario(5, "Mariano Rossi", "mariano@empresa.com"));
+        funcionarios.add(new Funcionario(6, "Carmen Mello", "carmen@empresa.com"));
+        funcionarios.add(new Funcionario(7, "João Pedro", "j.pedro@empresa.com"));
+        funcionarios.add(new Funcionario(8, "João Bernardez","j.Bernardez@empresa.com"));
+        funcionarios.add(new Funcionario(9,"Luiz Favero", "Luiz.F@empresa.com"));
+        while(true) {
+            System.out.println("=== Busca ===");
+            System.out.println("Você gostaria de buscar um funcionário ou um equipamento? (f/e)");
+            String control = scanner.nextLine();
+            if (control.equalsIgnoreCase("f")) {
+                System.out.println("Digite o nome do funcionário que deseja buscar: ");
+                String busca = scanner.nextLine();
+                FuncionarioBusca.procurarFuncionario(funcionarios, busca);
+                break;
+            }
+            if (control.equalsIgnoreCase("e")) {
+                System.out.println("equipamento busca bla bla bla");
+                break;
+            } else {
+                System.out.println("Erro na busca! Insira uma opção válida!");
+            }
+        }
 
-        System.out.println("=== Funcionário Criado ===");
-        System.out.println(funcionario.toString());
+
         System.out.println();
+
+
 
         Equipamento equipamento = new Equipamento(
                 1,
                 "Computador Dell",
                 "Computador desktop para escritório",
-                funcionario,
+                funcionarios.getFirst(),
                 new Date(),
                 3500.00,
                 "Eletrônico"
@@ -55,7 +83,7 @@ public class Main {
         System.out.println();
 
         System.out.println("=== Importando de CSV ===");
-        Equipamento equipamentoImportado = Equipamento.fromCSV(csv, funcionario);
+        Equipamento equipamentoImportado = Equipamento.fromCSV(csv, funcionarios.getFirst());
         System.out.println(equipamentoImportado.toString());
 
         scanner.close();
