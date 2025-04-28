@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Funcionario {
     private int id;
     private String nome;
@@ -41,5 +43,18 @@ public class Funcionario {
     public static Funcionario fromCSV (String linha){
         String[] partes = linha.split(",");
         return new Funcionario(Integer.parseInt(partes[0]), partes[1], partes[2]);
+    }
+
+    public static void listarFuncionarios(List<Funcionario> funcionarios) {
+        if (funcionarios.isEmpty()) {
+            System.out.println("\nNenhum funcionário cadastrado.");
+        } else {
+            System.out.println("\n=== Lista de Funcionários ===\n");
+            for (Funcionario f : funcionarios) {
+                System.out.println("----------------------------");
+                System.out.println(f);
+                System.out.println("----------------------------\n");
+            }
+        }
     }
 }
