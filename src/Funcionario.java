@@ -29,6 +29,15 @@ public class Funcionario {
         this.email = email;
     }
 
+    public boolean verificarEmail(){
+        
+        if (!email.contains("@") || !email.contains(".") || emails.contains("&") || email.contains("=")){
+            return false;
+        }
+    
+        return true;
+    }
+
     @Override
     public String toString() {
         return "ID do Funcionario: " + id + "\nNome do Funcionario: " + nome + "\n Email do Funcionario: " + email;
