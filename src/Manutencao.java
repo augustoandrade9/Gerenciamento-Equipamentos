@@ -1,6 +1,12 @@
 import java.util.Date;
 
 public class Manutencao {
+    public enum EstadoManutencao {
+        SOLICITADA,
+        EM_ANDAMENTO,
+        CONCLUIDA
+    }
+
     private Equipamento equipamento;
     private Date dataPedido;
     private String descricao;
@@ -8,7 +14,7 @@ public class Manutencao {
     private Date dataEntrada;
     private Date dataSaida;
     private String solucao;
-    private String estado;
+    private EstadoManutencao estado;
 
     public Equipamento getEquipamento() {
         return equipamento;
@@ -66,11 +72,17 @@ public class Manutencao {
         this.solucao = solucao;
     }
 
-    public String getEstado() {
+    public EstadoManutencao getEstado() {
         return estado;
     }
 
-    public void setEstado(String estado) {
-        this.estado = estado;
+    public boolean setEstado(EstadoManutencao novoEstado) {
+        if (this.estado == null || novoEstado.ordinal() >= this.estado.ordinal()) {
+            this.estado = novoEstado;
+            return true;
+        } else {
+            System.out.println("Não é permitido retroceder o estado de manutenção.");
+            return false;
+        }
     }
 }
