@@ -86,6 +86,17 @@ public class Equipamento {
         this.classificacao = classificacao;
     }
 
+    public long mesesDeUso(){
+        Date hoje = new Date();
+
+        //Pega a Diferença de Milisegundos
+        long mlsDeDiferença = hoje.getTime() - dataAquisicao.getTime();
+
+        //Transfere para dias
+        long dias = mlsDeDiferença / (1000L * 60 * 60 * 24);
+        return dias/30;
+    }
+
     @Override
     public String toString() {
         return "ID do Equipamento: " + id +
