@@ -20,7 +20,7 @@ public class Funcionario {
     public void setNome(String nome){
         this.nome = nome;
     }
-
+    
     public String getEmail() {
         return email;
     }
@@ -31,7 +31,7 @@ public class Funcionario {
 
     public boolean verificarEmail(){
         
-        if (!email.contains("@") || !email.contains(".") || emails.contains("&") || email.contains("=")){
+        if (!email.contains("@") || !email.contains(".") || email.contains("&") || email.contains("=")){
             return false;
         }
     
