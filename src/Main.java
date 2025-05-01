@@ -83,6 +83,30 @@ public class Main {
                 System.out.println("Estado inválido. Tente novamente.");
             }
         }
+        System.out.println("\n=== Registro de Novo Pedido de Manutenção ===");
+        System.out.print("Deseja registrar um novo pedido de manutenção? (s/n): ");
+        String opcaoManutencao = scanner.nextLine();
+
+        if (opcaoManutencao.equalsIgnoreCase("s")) {
+            Manutencao novaManutencao = new Manutencao();
+            novaManutencao.setEquipamento(equipamento);
+            novaManutencao.setFuncionario(funcionario);
+            novaManutencao.setDataPedido(new Date());
+
+            System.out.print("Descreva o problema do equipamento: ");
+            String problema = scanner.nextLine();
+            novaManutencao.setDescricao(problema);
+
+            novaManutencao.setEstado(Manutencao.EstadoManutencao.SOLICITADA);
+
+            System.out.println("\n=== Pedido de Manutenção Registrado ===");
+            System.out.println("Equipamento: " + equipamento.getNome());
+            System.out.println("Funcionário Responsável: " + funcionario.getNome());
+            System.out.println("Data do Pedido: " + novaManutencao.getDataPedido());
+            System.out.println("Descrição: " + novaManutencao.getDescricao());
+            System.out.println("Estado: " + novaManutencao.getEstado());
+        }
+
 
         scanner.close();
     }
