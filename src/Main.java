@@ -58,6 +58,29 @@ public class Main {
         Equipamento equipamentoImportado = Equipamento.fromCSV(csv, funcionario);
         System.out.println(equipamentoImportado.toString());
 
+
+        //Eu tinha criado essa parte a partir da main atual ai tinha usado coisas que tinha la ja
+        // quando juntar é pra funcionar mesmo que esteja apontando erro agora
+        System.out.println("=== Gerando Relatorio ===");
+        System.out.println("Deseja gerar relatorio? s/n");
+        String rel = scanner.next();
+        if(rel=="s"){
+            Equipamento temp = equipamento;
+            System.out.println("\nRelatorio de equipamento:");
+            System.out.println("Nome: "+temp.getNome());
+            System.out.println("Nome funcionario responsavel: "+temp.getFuncionario().getNome());
+            int manut=0;
+            String estado = "EM_ANDAMENTO";
+            Manutencao.EstadoManutencao estadoManut = Manutencao.EstadoManutencao.valueOf(estado.toUpperCase());
+            if(manutencao.getEquipamento().getNome()==temp.getNome() && manutencao.getEstado()==estadoManut) {
+                manut++;
+                System.out.println("Há uma manutenção em andamento nesse equipamento");
+            }
+            System.out.println("Quantidade de manutenções: " +manut);
+        }else{
+            System.out.println("Relatorio não será gerado");
+        }
+
         scanner.close();
     }
 }
