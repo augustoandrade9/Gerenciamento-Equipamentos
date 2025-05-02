@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 import java.util.Date;
 
 public class Manutencao {
@@ -7,6 +8,7 @@ public class Manutencao {
         CONCLUIDA
     }
 
+    public static ArrayList<Manutencao> equipManu = new ArrayList<> ();
     private Equipamento equipamento;
     private Date dataPedido;
     private String descricao;
@@ -22,6 +24,7 @@ public class Manutencao {
 
     public void setEquipamento(Equipamento equipamento) {
         this.equipamento = equipamento;
+        equipManu.add(this);
     }
 
     public Date getDataPedido() {
