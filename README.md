@@ -13,4 +13,4 @@ Sistema para gerenciar manutenções de equipamentos em uma empresa
 * Augusto de Souza Andrade
 
 ## Orientador
-* Daniel Antonio Callegari
+Daniel Antonio Callegari
